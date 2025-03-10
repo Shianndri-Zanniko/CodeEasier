@@ -5,12 +5,20 @@ import { SignUp } from './Components/LoginSignup/Signup'
 import Login from './Components/LoginSignup/Login'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // State to control which component to display
+  const [showLogin, setShowLogin] = useState(false);
+
+  // Toggle functions
+  const navigateToLogin = () => setShowLogin(true);
+  const navigateToSignup = () => setShowLogin(false);
 
   return (
     <div>
       <Background />
-      <Login />
+      {showLogin ? 
+        <Login goToSignup={navigateToSignup} /> : 
+        <SignUp goToLogin={navigateToLogin} />
+      }
     </div>
   )
 }
