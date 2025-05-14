@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import CodeEasierLogo from "../assets/NavbarComponent/CodeEasierLogo.svg";
-import HomeLogo from "../assets/NavbarComponent/HomeLogo.svg";
-import TestUser from "../assets/NavbarComponent/TestUser.svg";
+import CodeEasierLogo from "../assets/Navbar/CodeEasierLogo.svg";
+import HomeLogo from "../assets/Navbar/HomeLogo.svg";
+import TestUser from "../assets/Navbar/TestUserLogo.svg";
 
 // User Navbar UI (With no Authentication)
 // This component is used to display the navigation bar for authenticated users
@@ -32,7 +32,7 @@ const Navbar = () => {
           </li>
           {/* About us button */}
           <li>
-            <Link to="/" className="text-gray-300 hover:text-white text-center font-lexend text-[15px] font-medium"> About Us </Link>
+            <Link to="/" className="text-black-300 hover:text-white text-center font-lexend text-[15px] font-medium"> About Us </Link>
           </li>
           {/* Profile Button, Logic doesn't apply yet*/}
           <li>

@@ -1,0 +1,38 @@
+.achievement-div{
+    font-size: 35px;
+    color: white;
+    font-family: 'Lexend', sans-serif;
+    background-Color: #3A2DB3;
+    padding: 20px;
+    border-Radius: 10px;
+    color: 'white';
+    font-Family: sans-serif;
+    width: 465px;
+}
+
+.achievement-card{
+    display: flex;
+    align-Items: center;
+    margin-Bottom: 15px;
+    width: 353px;
+    height: 37px;
+}
+
+.dot{
+    height: 12px;
+    width: 12px;
+    border-Radius: 50%;
+    background-Color: #fff;
+    margin-Right: 10px;
+}
+
+.title-div{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    background-Color: #D9D9D9;
+    padding: 10px 15px;
+    border-Radius: 15px;
+    color: #666666;
+    flex: 1;
+}
+
