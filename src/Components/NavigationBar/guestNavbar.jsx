@@ -1,7 +1,7 @@
-import { useAuth } from '../context/AuthContext'
 import  { Link } from "react-router-dom";
-import CodeEasierLogo from "../assets/NavbarComponent/CodeEasierLogo.svg";
-import HomeLogo from "../assets/NavbarComponent/HomeLogo.svg";
+import CodeEasierLogo from "../assets/Navbar/CodeEasierLogo.svg";
+import HomeLogo from "../assets/Navbar/HomeLogo.svg";
+import SignUp from "../LoginSignup/Signup.jsx";
 
 // Guest Navbar UI (Without Authentication)
 // This component is used to display the navigation bar for guest users
@@ -23,25 +23,25 @@ const Navbar = () => {
         <ul className="flex items-center space-x-8">
           {/* Home Button */}
           <li>
-            <Link to="#"className="flex transition-transform duration-200 hover:scale-110">
+            <Link to="/"className="flex transition-transform duration-200 hover:scale-110">
               <img src={HomeLogo} alt="Home logo" className="h-8 w-auto" />
             </Link>
           </li>
           {/* Achievement Button */}
           <li>
-            <Link to="#" className="text-gray-300 hover:text-white text-center font-lexend text-[15px] font-medium">
+            <Link to="/" className="text-gray-300 hover:text-white text-center font-lexend text-[15px] font-medium">
               Achievement
             </Link>
           </li>
           {/* About us button */}
           <li>
-            <Link to="#" className="text-gray-300 hover:text-white text-center font-lexend text-[15px] font-medium">
+            <Link to="/" className="text-gray-300 hover:text-white text-center font-lexend text-[15px] font-medium">
               About Us
             </Link>
           </li>
           {/* Login Register Button */}
           <li>
-            <Link to ="#" className="text-black-300 text-center font-lexend text-[15px] font-medium">
+            <Link to = "/signup" className="text-black-300 text-center font-lexend text-[15px] font-medium">
               <button className="bg-white border py-1 px-3 rounded-full transition-transform hover:scale-105 cursor-pointer"> Login/Register </button>
             </Link>
           </li>
