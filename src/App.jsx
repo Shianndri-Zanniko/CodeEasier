@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, useLocation} from 'react-router-dom';
 import { auth } from "./firebase";
 import "./App.css";
+import { onAuthStateChanged } from "firebase/auth";
 
 import { Background } from "./Background";
 import SignUp from "./Components/LoginSignup/SignupPage.jsx";
@@ -12,6 +13,13 @@ import Homepage from "./Components/Homepage/Homepage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setIsLoggedIn(!!user);
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     // Main App component

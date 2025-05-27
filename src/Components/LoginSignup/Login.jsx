@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-// import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 import eye from "../assets/eye.svg";
 import eye_hidden from "../assets/eye_hidden.svg";
 
 export const Login = ({ goToSignup, goToForgotPassword }) => {
-  //   // State for tracking password visibility
+  const navigate = useNavigate();
+
+  //  State for tracking password visibility
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  //   // Form input states
+  //   Form input states
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,6 +42,7 @@ export const Login = ({ goToSignup, goToForgotPassword }) => {
       // Sign in with email and password
       await signInWithEmailAndPassword(auth, email, password);
       setSuccess(true);
+      navigate("/");
       setLoading(false);
 
       // Clear form after successful login
@@ -73,7 +76,7 @@ export const Login = ({ goToSignup, goToForgotPassword }) => {
           <h1 className="text-white text-3xl sm:text-4xl font-bold text-center mb-2 font-poppins">
             Sign In
           </h1>
-          <div className="flex flex-col w-full gap-5">
+          <form onSubmit={handleLogin} className="flex flex-col w-full gap-5">
             {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
             {success && (
               <div className="text-green-500 text-sm mb-2">
@@ -85,6 +88,8 @@ export const Login = ({ goToSignup, goToForgotPassword }) => {
               <input
                 type="text"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
               />
             </div>
@@ -109,29 +114,29 @@ export const Login = ({ goToSignup, goToForgotPassword }) => {
             >
               Forgot Password?
             </span>
-          </div>
-        </div>
 
-        <div className="flex flex-col w-full">
-          <button
-            onClick={handleLogin}
-            disabled={loading}
-            className={`w-full h-12 flex items-center justify-center rounded bg-gradient-to-r from-[#3525B0] to-[#3131BD] text-white font-poppins font-medium text-base cursor-pointer ${
-              loading ? "opacity-70" : ""
-            }`}
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
+            <div className="flex flex-col w-full">
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full h-12 flex items-center justify-center rounded bg-gradient-to-r from-[#3525B0] to-[#3131BD] text-white font-poppins font-medium text-base cursor-pointer ${
+                  loading ? "opacity-70" : ""
+                }`}
+              >
+                {loading ? "Logging in..." : "Login"}
+              </button>
 
-          <div className="text-right text-white font-poppins text-sm font-normal mt-4">
-            Don't have an account?{" "}
-            <span
-              onClick={goToSignup}
-              className="text-[#545EAA] font-medium cursor-pointer"
-            >
-              Sign Up
-            </span>
-          </div>
+              <div className="text-right text-white font-poppins text-sm font-normal mt-4">
+                Don't have an account?{" "}
+                <span
+                  onClick={goToSignup}
+                  className="text-[#545EAA] font-medium cursor-pointer"
+                >
+                  Sign Up
+                </span>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

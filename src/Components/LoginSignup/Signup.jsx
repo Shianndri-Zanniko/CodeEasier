@@ -95,74 +95,76 @@ export const SignUp = ({ goToLogin }) => {
       <div className="flex flex-col items-center w-[350px] max-w-full gap-7">
         <div className="flex flex-col justify-center items-center w-full gap-10">
           <h1 className="text-white text-3xl sm:text-4xl font-bold text-center mb-2 font-poppins">Sign Up</h1>
-          <div className="flex flex-col w-full gap-5">
-            {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
-            {success && <div className="text-green-500 text-sm mb-2">Account created successfully!</div>}
-            
-            <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
-              <input
-                type="text"
-                placeholder="Full Name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
-              />
+          <form onSubmit={handleSignUp} className="flex flex-col w-full gap-5">
+            <div className="flex flex-col w-full gap-5">
+              {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
+              {success && <div className="text-green-500 text-sm mb-2">Account created successfully!</div>}
+              
+              <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
+                />
+              </div>
+              <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
+                <input
+                  type="text"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
+                />
+              </div>
+              <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
+                <input
+                  type={passwordVisible ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
+                />
+                <img
+                  src={passwordVisible ? eye_hidden : eye}
+                  alt="toggle password visibility"
+                  onClick={togglePasswordVisibility}
+                  className="w-5 ml-2 cursor-pointer filter invert brightness-0"
+                />
+              </div>
+              <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
+                <input
+                  type={confirmPasswordVisible ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
+                />
+                <img
+                  src={confirmPasswordVisible ? eye_hidden : eye}
+                  alt="toggle confirm password visibility"
+                  onClick={toggleConfirmPasswordVisibility}
+                  className="w-5 ml-2 cursor-pointer filter invert brightness-0"
+                />
+              </div>
             </div>
-            <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
-              <input
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
-              />
+            <div className="flex flex-col w-full">
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full h-12 flex items-center justify-center rounded bg-gradient-to-r from-[#3525B0] to-[#3131BD] text-white font-poppins font-medium text-base cursor-pointer ${loading ? 'opacity-70' : ''}`}
+              >
+                {loading ? 'Creating Account...' : 'Sign Up'}
+              </button>
+              <div className="text-right text-white font-poppins text-sm font-normal mt-4">
+                Already have an account?{' '}
+                <span onClick={goToLogin} className="text-[#545EAA] font-medium cursor-pointer">
+                  Sign In
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
-              <input
-                type={passwordVisible ? "text" : "password"}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
-              />
-              <img
-                src={passwordVisible ? eye_hidden : eye}
-                alt="toggle password visibility"
-                onClick={togglePasswordVisibility}
-                className="w-5 ml-2 cursor-pointer filter invert brightness-0"
-              />
-            </div>
-            <div className="flex justify-between items-center px-5 py-4 border border-[#E8E9F6] rounded w-full mb-1">
-              <input
-                type={confirmPasswordVisible ? "text" : "password"}
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full bg-transparent border-none outline-none text-white font-poppins text-base"
-              />
-              <img
-                src={confirmPasswordVisible ? eye_hidden : eye}
-                alt="toggle confirm password visibility"
-                onClick={toggleConfirmPasswordVisibility}
-                className="w-5 ml-2 cursor-pointer filter invert brightness-0"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col w-full">
-          <button
-            onClick={handleSignUp}
-            disabled={loading}
-            className={`w-full h-12 flex items-center justify-center rounded bg-gradient-to-r from-[#3525B0] to-[#3131BD] text-white font-poppins font-medium text-base cursor-pointer ${loading ? 'opacity-70' : ''}`}
-          >
-            {loading ? 'Creating Account...' : 'Sign Up'}
-          </button>
-          <div className="text-right text-white font-poppins text-sm font-normal mt-4">
-            Already have an account?{' '}
-            <span onClick={goToLogin} className="text-[#545EAA] font-medium cursor-pointer">
-              Sign In
-            </span>
-          </div>
+          </form>
         </div>
       </div>
     </div>
