@@ -1,0 +1,4 @@
+export const ACHIEVEMENT_IDS = {
+  PROFILE_COMPLETE: 'ach001',
+  FIRST_LESSON: 'ach002'
+};
