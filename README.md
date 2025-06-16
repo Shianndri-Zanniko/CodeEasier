@@ -1,6 +1,6 @@
 # CodeEasier
 
-A gamified platform to make coding practice fun and engaging.
+A gamified platform to make programming practice fun and engaging!
 
 ## About
 
