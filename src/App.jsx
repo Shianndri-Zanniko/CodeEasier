@@ -7,7 +7,7 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import Dashboard from './pages/app/Dashboard';
 import Courses from './pages/app/Courses';
 import Profile from './pages/app/Profile';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './Components/ProtectedRoute';
 import CourseDetail from './pages/app/CourseDetail';
 import GlobalNotes from './pages/GlobalNotes';
 import CompleteProfile from './pages/auth/CompleteProfile';
