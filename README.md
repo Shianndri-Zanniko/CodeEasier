@@ -5,6 +5,8 @@ A gamified platform to make programming practice fun and engaging!
 You can access CodeEasier here!
 🔗 [https://code-easier.vercel.app](https://code-easier.vercel.app)
 
+DISCLAIMER: Do not use your real email and password.
+
 ## About
 
 CodeEasier is built with React, Vite and Firebase to provide interactive courses, achievements and daily challenges that keep learners motivated.
